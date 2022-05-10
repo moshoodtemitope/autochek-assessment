@@ -127,7 +127,7 @@ const LandingPage = ({ allCarsData, allCarMakes }: any) => {
       <div className={styles.classifieds_wrapper}>
         <div className={styles.classified_items}>
           <PopularMakesShowcase allCarMakes={allCarMakes.makeList} />
-          <AllCarsShowcase allCarsData={allCarsData.mainData} />
+          {/* <AllCarsShowcase allCarsData={allCarsData.mainData} /> */}
         </div>
         <FilterItemsWrap />
       </div>
