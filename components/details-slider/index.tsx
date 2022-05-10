@@ -19,7 +19,7 @@ const CarGallerySlider = ({ slides, mediaList }: CarGallerySliderProps) => {
     const [mainViewportRef, embla] = useEmblaCarousel({ skipSnaps: false, loop: true });
     const [thumbViewportRef, emblaThumbs] = useEmblaCarousel({
         containScroll: "keepSnaps",
-        // selectedClass: "",
+        
         dragFree: true
     });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);

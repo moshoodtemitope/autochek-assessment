@@ -63,7 +63,7 @@ const PopularMakesShowcase = ({ allCarMakes }: any) => {
           chunkedData.map((eachChunk, idx) => {
             return (
               <div className={styles.cars_card} key={idx}>
-                {/* <div className="cars_card_header">New Cars Stock</div> */}
+               
                 <div className={styles.allcars_list}>
                   {
                     eachChunk.map((car:any, index:any) => {

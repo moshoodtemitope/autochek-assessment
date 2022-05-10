@@ -25,41 +25,12 @@ const AllCarsShowcase = ({ allCarsData }: any) => {
   return (
     <div className={styles.cars_show_wrap}>
       <div className={`${styles.heading_text} ${styles.to_left}`}>Cars for Sale</div>
-      {/* <div className={styles.cars_card}>
-
-        <div className={styles.allcars_list}>
-          {
-            allCarsData.map((car, index) => {
-              return (
-                <Link
-
-                  href={transformUrl({
-                    urlPrefix: "/car",
-                    urlToTransform: car.websiteUrl,
-                    urlSplitter: "/car"
-                  })}
-                  key={index}>
-                  <a className={carStyles.car_item}>
-                    <ClassifiedCarItem
-                      showTag={index == 1 || index == 2}
-                      cardCta="More details"
-                      carInfo={car}
-                      urlPrefix="/car"
-                      urlSplitter="/car"
-                      isDetailedCard={true}
-                    />
-                  </a>
-                </Link>
-              )
-            })
-          }
-        </div>
-      </div> */}
+      
       {
         chunkedData.map((eachChunk, idx) => {
           return (
             <div className={styles.cars_card} key={idx}>
-              {/* <div className="cars_card_header">New Cars Stock</div> */}
+              
               <div className={styles.allcars_list}>
                 {
                   eachChunk.map((car:any, index:any) => {
