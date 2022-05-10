@@ -1,0 +1,121 @@
+@import "../styles/shared/colors";
+
+
+.container {
+  /* padding: 0 2rem; */
+  position: relative;
+}
+
+.allcars_list{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  @media screen and (max-width: 1023px) {
+      display: block;
+  }
+}
+.cars_card {
+  // width: 60%;
+  box-shadow: 0px 0px 15px 0px #d6d6d6;
+  padding: 50px 40px;
+  &:not(:last-of-type){
+    margin-bottom: 40px;
+  }
+}
+.popularbrands_header {
+  text-align: center;
+  font-size: 30px;
+  margin: 30px 0;
+}
+
+.popularbrands_header{
+  font-size: 30px;
+  font-weight: 600;
+
+}
+
+.classifieds_wrapper{
+  display: flex;
+  display: flex;
+  width: 86%;
+  margin: 0 auto;
+  
+  .classified_items{
+    flex-basis: 73%;
+    
+    &.full_width{
+      flex-basis: 100%;
+    }
+  }
+  .filters_wrap{
+    flex-basis: 25%;
+    background-color: #F9F9F9;
+    margin-left: 20px;
+    padding: 1.5rem;
+    height: fit-content;
+  }
+  @media screen and (max-width: 1023px) {
+      display: block;
+  }
+}
+.cars_show_wrap{
+  .heading_text{
+    font-size: 30px;
+    font-weight: 600; 
+    text-align: center;
+    margin: 50px 0 30px;
+    &.to_left{
+      text-align: left;
+    }
+  }
+}
+.filter_wrap{
+  padding: 25px 0;
+  &:not(:last-of-type){
+    border-bottom: 1px solid #dee2e6;
+  }
+  input[type=text]{
+    background: #fff;
+    border: none;
+    width: 78%;
+    outline: none;
+    padding: 11px 10px 10px 10px;
+    font-size: 13px;
+    color: #c4c4c4;
+    height: 36px;
+  }
+  .search_cta{
+    background: $brand-blue;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 22px;
+    padding: 0 10px;
+    height: 36px;
+  }
+  .filters_header{
+    font-size: 21px;
+    color: $brand-red;
+    margin-bottom: 1rem;
+  }
+  .each_filter_type{
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
+
+.view_more_cars{
+  margin: 20px 0;
+  text-align: right;
+  a{
+    color: $brand-blue;
+    &:hover{
+      font-weight: 500;
+    }
+  }
+}
+
+.pagination_wrap{
+  margin: 20px 0;
+  
+}

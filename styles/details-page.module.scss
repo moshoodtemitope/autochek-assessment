@@ -1,0 +1,245 @@
+.details_page_wrap{
+    padding: 50px 7%;
+    background: #F9F9F9;
+    @media screen and (max-width: 1023px) {
+        padding: 50px 0;
+    }
+    .panel_wrap {
+        background: #F9F9F9;
+        padding: 10px 5%;
+    }
+    .panel_content {
+        background: #fff;
+    }
+    .top_bar_section{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        border-bottom: 1px solid #f2f2f2;
+        font-size: 14px;
+        >div:last-of-type{
+            text-align: right;
+        }
+        @media screen and (max-width: 1023px) {
+            display: block;
+            >div:last-of-type{
+                text-align: left;
+            }
+        }
+    }
+    .horizontal_details{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        @media screen and (max-width:1023px) {
+            display: block;
+        }
+        &.borderd{
+            >div{
+                padding: 0 10px;
+                &:last-of-type{
+                    padding-right: 0;
+                }
+                @media screen and (max-width: 1023px) {
+                    padding-left:0 ;
+                    margin-bottom: 10px;
+                }
+            }
+            >div:not(:last-of-type){
+                border-right: 1px solid #85929E ;
+                @media screen and (max-width: 1023px) {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .car_name{
+        font-size: 25px;
+        font-weight: 600;
+        display: flex;
+    }
+
+    .car_location{
+        display: flex;
+        align-items: center;
+        
+        svg{
+            margin-right: 7px;
+        }
+    }
+    .car_featured{
+        color: #D35400;
+        font-size: 12px;
+        font-weight: 800;
+        margin-left: 3px;
+        position: relative;
+        top: 5px;
+        svg{
+            margin-right: 7px;
+        }
+    }
+    .rating_txt{
+        background: #F8C471;
+        border-radius: 5px;
+        padding: 3px 5px;
+        display: inline-block;
+        color: #fff;
+        svg{
+            margin-right: 3px;
+        }
+        @media screen and (max-width: 1023px){
+            margin: 10px 0;
+        }
+    }
+    .owner_type{
+        color: #D35400;
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+    .media_and_info{
+        display: flex;
+        @media screen and (max-width: 1023px){
+            display: block;
+        }
+    }
+    .gallery_wrap{
+        flex-basis: 60%;
+    }
+    .other_info{
+        padding: 40px 0 20px 10px ;
+        flex-basis: 40%;
+        
+    }
+    .car_price{
+        font-size: 45px;
+        font-weight: 700;
+        color: #D35400;
+        text-align: center;
+        letter-spacing: -2.9px;
+    }
+    .loan_facility{
+        text-align: center;
+        font-style: italic;
+        font-size: 13px;
+        font-weight: 600;
+        color: #5D6D7E;
+    }
+    .car_features_horizontal{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 10px;
+        margin-top: 50px;
+        .each_feature{
+            flex-basis: 47%;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            background: #EBEDEF;
+            padding: 20px 10px;
+            text-align: center;
+            font-weight: 600;
+            svg{
+                margin-right: 10px;
+                font-size: 16px;
+            }
+        }
+    }
+    .book_inspection{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .book_btn{
+        cursor: pointer;
+        background: #D35400;
+        padding: 10px;
+        font-weight:600;
+        color: #ffffff;
+        font-size: 14px;
+    }
+    .panel_horizontal{
+        display: flex;
+        justify-content: space-around;
+        @media screen and (max-width:1023px) {
+            display: block;
+        }
+    }
+    .three_items{
+        .each_panel_info{
+            flex-basis: 25%;
+            text-align: center;
+            padding: 15px 0;
+        }
+    }
+    .info_icon_and_title{
+        border-bottom: 1px solid #D5D8DC;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        svg{
+            font-size: 37px;
+            border: 2px solid #D35400;
+            padding: 17px;
+            border-radius: 50%;
+        }
+
+    }
+    .info_txt{
+        font-size: 14px;
+        font-weight: 500;
+        color: #AEB6BF;
+        &.info_txt_true{
+            color: #45B39D;
+        }
+    }
+    .cta_txt{
+        font-size: 13px;
+        color: #AEB6BF;
+        margin-top: 7px;
+        &.info_cta_active{
+            color: #5499C7;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    .car_condition{
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 13px;
+        margin-right: 10px;
+        border-radius: 6px;
+        padding: 7px 20px;
+        color: #fff;
+        &.new_car{
+            background: #45B39D;
+        }
+        &.used_car{
+            background: #D35400;
+        }
+        @media screen and (max-width: 1023px) {
+            padding: 0;
+            margin-bottom: 5px;
+            &.new_car{
+                background: none;
+                color: #45B39D;
+            }
+            &.used_car{
+                background: none;
+                color: #D35400;
+            }
+        }
+    }
+    .no_preview_photos{
+        text-align: center;
+        position: relative;
+        top: 30%;
+        color: #AEB6BF;
+        svg{
+            font-size: 60px;
+        }
+    }
+    .no_preview_msg{
+        font-size: 25px;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+}

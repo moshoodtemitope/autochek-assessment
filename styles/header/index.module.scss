@@ -1,0 +1,125 @@
+
+@import "../shared/colors";
+
+.topbar_info_wrap{
+    
+    .topbar_info{
+        color: #ffffff;
+        background: $brand-blue;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 44px;
+        
+    }
+    .discounttxt{
+        font-size: 15px;
+        svg{
+            margin-left: 8px;
+        }
+        @media screen and (max-width: 1023px){
+            font-size: 12px;
+        }
+    }
+    .topbar_other_links{
+        display: flex;
+        align-items: center;
+        .each_item{
+            text-align: center;
+            padding: 0 25px;
+            font-size: 13px;
+            &:not(:last-of-type){
+                border-right: 1px solid #ffffff;
+            }
+            svg{
+                margin-right: 10px;
+            }
+            @media screen and (max-width: 1023px){
+                &:not(:last-of-type){
+                    display: none;
+                }
+            }
+        }
+    }
+    .main_header_wrap{
+        display: flex;
+        padding: 20px 7%;
+        justify-content: space-between;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+        .logo_wrap{
+            flex-basis: 25%;
+        }
+        .logo{
+            max-width: 240px;
+        }
+        @media screen and (max-width: 1023px){
+            display: block;
+            background: #EAEDED;
+        }
+    }
+    .search_bar{
+        flex-basis: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        form{
+            flex-basis: 80%;
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 1023px){
+                display: block;
+            }
+        }
+        input{
+            width: 78%;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            line-height: 1.5;
+            font-size: 16px;
+            -webkit-appearance: none;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0,  0.22);
+            &:focus{
+                background-color: #fff;
+                border-color: #80bdff;
+                outline: 0;
+            }
+            @media screen and (max-width: 1023px){
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 1023px){
+            display: block;
+            margin-top: 30px;
+        }
+    }
+    .search_btn{
+        background: $brand-red;
+        color: #ffffff;
+        padding: 10px;
+        width: 20%;
+        margin-left: 15px;
+        @media screen and (max-width: 1023px){
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+    .cart_cta_wrap{
+        flex-basis: 20%;
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: 1023px){
+            display: none;
+        }
+    }
+    .cart_cta{
+        background: #000;
+        width: 50px;
+        height: 44px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        border-radius: 0.25rem;
+        justify-content: center;
+    }
+}
