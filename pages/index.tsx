@@ -27,7 +27,7 @@ const AllCarsShowcase = ({ allCarsData }: any) => {
 
         <div className={styles.allcars_list}>
           {
-            chunkedData[0].map((car:any, index:any) => {
+            chunkedData[0]?.map((car:any, index:any) => {
               return (
                 <CarItem
                   showTag={index == 1 || index == 2}
@@ -114,7 +114,7 @@ const FilterItemsWrap = () => {
 }
 
 const LandingPage = ({ allCarsData, allCarMakes }: any) => {
-  
+  console.log("allCarsData", allCarsData)
   return (
     <div className={styles.container}>
       <Head>
