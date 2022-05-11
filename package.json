@@ -6,7 +6,8 @@
     "dev": "next -p 5912",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@etchteam/next-pagination": "^3.5.3",

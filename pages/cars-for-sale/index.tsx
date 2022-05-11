@@ -11,12 +11,28 @@ import { transformUrl, breakDataIntoChunks } from "../../shared-utils/helpers"
 
 import ClassifiedCarItem from "../../components/car-item/classfied"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faCloudSun,
+} from "@fortawesome/free-solid-svg-icons";
 
 
 
 
+const EmptyDataReturned = () => {
+  return (
 
 
+    <div className={styles.no_data_found}>
+      <FontAwesomeIcon icon={faCloudSun} />
+      <div className={styles.no_preview_msg}>No data was fectched</div>
+
+    </div>
+
+
+  )
+}
 
 
 const AllCarsShowcase = ({ allCarsData }: any) => {
@@ -81,9 +97,9 @@ const AllCarsPage = ({ allCarsData, allCarMakes }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {allCarsData.result.length >= 1 &&
+        <div className={`${styles.classifieds_wrapper}`}>
 
-      <div className={`${styles.classifieds_wrapper}`}>
-        {allCarsData &&
           <div className={`${styles.classified_items} ${styles.full_width}`}>
 
             <AllCarsShowcase allCarsData={allCarsData.result} />
@@ -93,8 +109,12 @@ const AllCarsPage = ({ allCarsData, allCarMakes }: any) => {
             </div>
 
           </div>
-        }
-      </div>
+
+        </div>
+      }
+      {allCarsData.result.length === 0 &&
+        <EmptyDataReturned />
+      }
 
 
     </div>

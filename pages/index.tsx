@@ -10,12 +10,26 @@ import CarsBanner from "../components/slider"
 import CarItem from "../components/car-item"
 import { breakDataIntoChunks } from "../shared-utils/helpers"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faCloudSun,
+} from "@fortawesome/free-solid-svg-icons";
 
 
+const EmptyDataReturned = () => {
+  return (
 
 
+    <div className={styles.no_data_found}>
+      <FontAwesomeIcon icon={faCloudSun} />
+      <div className={styles.no_preview_msg}>No data was fectched</div>
+
+    </div>
 
 
+  )
+}
 
 const AllCarsShowcase = ({ allCarsData }: any) => {
   let chunkedData = breakDataIntoChunks({ dataToChunk: allCarsData.result, chunkSize: 3, sizeOfData: allCarsData.result.length });
@@ -27,13 +41,13 @@ const AllCarsShowcase = ({ allCarsData }: any) => {
 
         <div className={styles.allcars_list}>
           {
-            chunkedData[0]?.map((car:any, index:any) => {
+            chunkedData[0]?.map((car: any, index: any) => {
               return (
                 <CarItem
                   showTag={index == 1 || index == 2}
                   cardCta="Buy Car"
                   carInfo={car}
-                  urlPrefix = "/cars-for-sale"
+                  urlPrefix="/cars-for-sale"
                   urlSplitter="/car"
                   key={index}
                 />
@@ -63,10 +77,10 @@ const PopularMakesShowcase = ({ allCarMakes }: any) => {
           chunkedData.map((eachChunk, idx) => {
             return (
               <div className={styles.cars_card} key={idx}>
-               
+
                 <div className={styles.allcars_list}>
                   {
-                    eachChunk.map((car:any, index:any) => {
+                    eachChunk.map((car: any, index: any) => {
                       return (
                         <CarItem
 
@@ -122,16 +136,23 @@ const LandingPage = ({ allCarsData, allCarMakes }: any) => {
         <meta name="description" content="A Car Products Classified App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CarsBanner slides={allCarsData.selectedData} />
-      <div className={styles.popularbrands_header}> Popular Car Brands</div>
-      <div className={styles.classifieds_wrapper}>
-        <div className={styles.classified_items}>
-          <PopularMakesShowcase allCarMakes={allCarMakes.makeList} />
-          {allCarsData && <AllCarsShowcase allCarsData={allCarsData.mainData} />}
-        </div>
-        <FilterItemsWrap />
-      </div>
+      {allCarsData.mainData.result.length >= 1 &&
+        <div>
 
+          <CarsBanner slides={allCarsData.selectedData} />
+          <div className={styles.popularbrands_header}> Popular Car Brands</div>
+          <div className={styles.classifieds_wrapper}>
+            <div className={styles.classified_items}>
+              <PopularMakesShowcase allCarMakes={allCarMakes.makeList} />
+              <AllCarsShowcase allCarsData={allCarsData.mainData} />
+            </div>
+            <FilterItemsWrap />
+          </div>
+        </div>
+      }
+      {allCarsData.mainData.result.length === 0 &&
+        <EmptyDataReturned />
+      }
 
     </div>
   )
@@ -139,13 +160,13 @@ const LandingPage = ({ allCarsData, allCarMakes }: any) => {
 
 
 
-export async function getServerSideProps({query}:any) {
+export async function getServerSideProps({ query }: any) {
   const pageNum = query.page;
   const pageSize = query.size;
   const [allCarMakes, allCarsData] = await Promise.all([
     getCarMakes(), getAllCarsData({
       isRandomData: true,
-      pageNum, 
+      pageNum,
       pageSize
     })
   ]);
