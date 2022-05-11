@@ -21,19 +21,19 @@ import ClassifiedCarItem from "../../components/car-item/classfied"
 
 const AllCarsShowcase = ({ allCarsData }: any) => {
   let chunkedData = breakDataIntoChunks({ dataToChunk: allCarsData, chunkSize: 3, sizeOfData: allCarsData.length });
-  
+
   return (
     <div className={styles.cars_show_wrap}>
       <div className={`${styles.heading_text} ${styles.to_left}`}>Cars for Sale</div>
-      
+
       {
         chunkedData.map((eachChunk, idx) => {
           return (
             <div className={styles.cars_card} key={idx}>
-              
+
               <div className={styles.allcars_list}>
                 {
-                  eachChunk.map((car:any, index:any) => {
+                  eachChunk.map((car: any, index: any) => {
                     return (
                       <Link
 
@@ -62,7 +62,7 @@ const AllCarsShowcase = ({ allCarsData }: any) => {
           )
         })
       }
-      
+
 
     </div>
   )
@@ -72,7 +72,7 @@ const AllCarsShowcase = ({ allCarsData }: any) => {
 
 
 const AllCarsPage = ({ allCarsData, allCarMakes }: any) => {
-  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -83,13 +83,17 @@ const AllCarsPage = ({ allCarsData, allCarMakes }: any) => {
 
 
       <div className={`${styles.classifieds_wrapper}`}>
-        <div className={`${styles.classified_items} ${styles.full_width}`}>
-          <AllCarsShowcase allCarsData={allCarsData.result} />
-          <div className={styles.pagination_wrap}>
-            <Pagination sizes={[25,40,50,60]} theme={styles3} total={allCarsData.pagination.total} />
+        {allCarsData &&
+          <div className={`${styles.classified_items} ${styles.full_width}`}>
+
+            <AllCarsShowcase allCarsData={allCarsData.result} />
+
+            <div className={styles.pagination_wrap}>
+              <Pagination sizes={[25, 40, 50, 60]} theme={styles3} total={allCarsData.pagination.total} />
+            </div>
+
           </div>
-          
-        </div>
+        }
       </div>
 
 
@@ -99,13 +103,13 @@ const AllCarsPage = ({ allCarsData, allCarMakes }: any) => {
 
 
 
-export async function getServerSideProps({query}:any) {
+export async function getServerSideProps({ query }: any) {
   const pageNum = query.page;
   const pageSize = query.size;
   const [allCarMakes, allCarsData] = await Promise.all([
     getCarMakes(), getAllCarsData({
       isRandomData: false,
-      pageNum, 
+      pageNum,
       pageSize
     })
   ]);
